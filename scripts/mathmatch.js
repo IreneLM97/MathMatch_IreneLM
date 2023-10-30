@@ -95,12 +95,11 @@ function comprobarExisteJugador(event) {
 
 // FUNCIÓN AL PULSAR ALGUNA OPCIÓN DE MENÚ
 function comenzarJuego() {
-    // hacemos scroll al inicio de la página
-    $("#juego").scrollTop(0);
-
     // ocultamos el menú de juego y mostramos el juego
-    $("#menu").fadeOut('slow', function(){
-        $("#juego").fadeIn('slow');
+    $("#menu").fadeOut('slow', function() {
+        $("#juego").fadeIn('slow', function() {
+            $("html, body").scrollTop(0);  // hacemos scroll hacia arriba
+        });
     });
 
     // reiniciamos las variables del juego
@@ -128,12 +127,11 @@ function reiniciarJuego() {
 
 // FUNCIÓN AL PULSAR EL BOTÓN DE VOLVER AL MENÚ
 function volverMenu() {
-    // hacemos scroll al inicio de la página
-    $("#menu").scrollTop(0);
-
     // ocultamos el juego y mostramos el menú del juego
-    $("#juego").fadeOut('slow', function(){
-        $("#menu").fadeIn('slow');
+    $("#juego").fadeOut('slow', function() {
+        $("#menu").fadeIn('slow', function() {
+            $("html, body").scrollTop(0);  // hacemos scroll hacia arriba
+        });
     }); 
 }
 
