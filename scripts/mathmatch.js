@@ -80,7 +80,7 @@ function comprobarExisteJugador(event) {
 
     // no se introduce ningún nombre
     if(jugador == "") {
-        if(event.type === "blur") alert("Debes introducir un nombre de jugador");
+        alert("Debes introducir un nombre de jugador");  
         // deshabilitamos las funciones de las opciones de menú
         // usamos la función unbind() por requisitos del ejercicio, pero es más eficiente el método off() (asociado a on())
         $("div[name='opcion']").unbind("click");
