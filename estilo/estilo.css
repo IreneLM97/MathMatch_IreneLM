@@ -93,7 +93,7 @@ body {
     border: 1px solid #000;
     text-align: start;
     margin-bottom: 20px;
-    width: 1200px;
+    max-width: 70vw;
     margin: 0 auto;
     font-size: 20px;
 }
@@ -105,23 +105,25 @@ body {
 
 /* ESTILO DEL DIV DE LOS TIEMPOS */
 #tiempos {
-    padding: 10px;
-    border: 1px solid #000;
+    font-family: "Digital-7", sans-serif; 
+    background-color: #707070;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
     width: 300px;
     margin: 0 auto;
-    margin-bottom: 20px;
-    font-size: 20px;
 }
 
-#tiempos i {
-    font-size: 23px;
+#mejorTiempo {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* ESTILO DE LA TABLA QUE MUESTRA LAS IMÁGENES */
 table {
     border-collapse: collapse;
-    margin: 0 auto; /* Centra la tabla horizontalmente */
+    margin: 0 auto; 
 }
 
 /* ESTILO DE LAS IMÁGENES DE LA TABLA */

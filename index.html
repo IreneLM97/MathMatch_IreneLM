@@ -1,8 +1,47 @@
-<!-- 
-    EJERCICIO LIBRE II - MATH MATCH
+<!-- EJERCICIO LIBRE II - MATH MATCH
     JUEGO DE EMPAREJAR CARTAS USANDO MATEMÁTICAS 
 
     AUTORA: IRENE LÓPEZ MELERO
+-->
+
+<!-- ENUNCIADO 
+    El juego MathMatch es una versión del juego Memory de emparejar cartas utilizando matemáticas. 
+    Este juego debe tener las siguientes características.
+    MENÚ DE INICIO
+        1.	Debe incluir un menú de juego donde aparezca una caja de texto en la que se introduce el nombre del jugador 
+            y varias opciones de menú que se corresponden con las categorías de juego disponibles (por ejemplo, 
+            ‘Tablas de multiplicar’, ‘Geometría’, ‘Fracciones’, ‘Aritmética’, ‘Álgebra, etc).
+        2.	En ese menú, el nombre del usuario es obligatorio, de manera que si no se introduce no deben funcionar los 
+            eventos click de las opciones de menú. Además, el nombre del usuario se debe almacenar con LocalStorage.
+        3.	Si existe un nombre de usuario, deben funcionar los eventos click de las opciones de menú. Al pulsar alguna 
+            de ellas, deberá ocultarse el menú y mostrarse el juego, teniendo en cuenta la categoría seleccionada. 
+    VISTA DE JUEGO
+        1.	Al comenzar el juego, se deben crear en tiempo de ejecución las imágenes del juego de esa categoría de forma 
+            aleatoria sin mostrar su carta, es decir, con un inverso que sea igual en todas las imágenes. Las imágenes 
+            irán organizadas por pares {problema, solución}. 
+        2.	Cuando el usuario pulse una imagen deberá darse la vuelta, pudiendo ver sólo dos imágenes levantadas a la vez. 
+            Si esas imágenes están emparejadas, entonces se quedarán levantadas, en caso contrario se deberán volver a dar 
+            la vuelta. Las imágenes levantadas no pueden volver a pulsarse.
+        3.	Se debe mostrar un temporizador que va mostrando el tiempo de juego. Este temporizador debe detenerse cuando 
+            todas las parejas estén emparejadas. 
+        4.	Se debe almacenar en LocalStorage el mejor tiempo y en cookies los tres mejores tiempos. Esos tiempos se tienen 
+            que mostrar al jugador.
+        5.	Se debe incluir un botón ‘Resetear juego’ que permita volver a comenzar el juego con la categoría con la que 
+            estaba jugando.
+        6.	Se debe incluir un botón ‘Volver al menú’ que permita volver al menú de inicio.
+
+        Esta práctica se debe desarrollar en JQuery usando los métodos bind(), unbind(), data() y eventos delegados. 
+        Además, se debe usar alguna cookie o LocalStorage.
+
+        ALGUNAS SUGERENCIAS
+        En caso de almacenar los tiempos de jugada en cookies con el formato 00:00 (min:seg), es necesario emplear las 
+        siguientes funciones adicionales:
+        •	encodeURIComponent -> garantiza que el tiempo se guarde de forma correcta en la cookie, ya que el carácter “:” 
+            es un carácter especial y puede interferir en el manejo correcto del tiempo.
+        •	decodeURIComponente -> garantiza una lectura correcta del tiempo almacenado en la cookie. 
+        En cuanto a comprobar la posición del tiempo de jugada obtenido con respecto al top 3 de tiempos, se puede optimizar 
+        el código si se almacenan los tres tiempos en un array y se usa la función .findIndex(x => tiempo < x), donde el 
+        argumento de la .findIndex es una función lambda.
 -->
 
 <!DOCTYPE html>
@@ -10,7 +49,11 @@
 
 <head>
     <title>Math Match - Irene LM</title>
+    <!-- Incluimos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <!-- Incluimos estilo propio -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" media="all" />
+    <!-- Incluimos los scripts -->
     <script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/jquery.cookie.js" type="text/javascript"></script>
     <script src="scripts/datos.js" type="text/javascript"></script>
@@ -74,20 +117,22 @@
 
     <!-- Div con componentes del juego -->
     <div id="juego">
-        <h2>Tiempo <br> <span id="tiempo">00:00</span> segundos</h2>
+        <h1>Tiempo <br><span id="tiempo">00:00</span></h1>
         <table id="tablaCartas"></table>  
         <input type="button" id="reiniciar" value="Reiniciar el juego" class="boton-opciones">
         <input type="button" id="volver" value="Volver al menú" class="boton-opciones"><br><br><br>
 
         <!-- Div con puntuaciones del juego -->
+        
         <div id="tiempos">
+            <strong><i>Tu mejor tiempo</i></strong><br><br>
+            <span><i class="fas fa-trophy" style="font-size: 1.3em;"></i></span>&nbsp;<span id="mejorTiempo">--:--</span>
+            <br><br>
+
             <strong><i>Tus mejores tiempos</i></strong><br><br>
             <strong><span>1º posición: </span></strong><span id="top1">--:--</span><br>
             <strong><span>2º posición: </span></strong><span id="top2">--:--</span><br>
-            <strong><span>3º posición: </span></strong><span id="top3">--:--</span><br><br>
-            
-            <strong><i>Tu mejor tiempo</i></strong><br>
-            <span id="mejorTiempo">--:--</span>
+            <strong><span>3º posición: </span></strong><span id="top3">--:--</span>
         </div>
     </div>
 
