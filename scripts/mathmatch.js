@@ -95,9 +95,6 @@ function comprobarExisteJugador(event) {
 
 // FUNCIÓN AL PULSAR ALGUNA OPCIÓN DE MENÚ
 function comenzarJuego() {
-    // hacemos scroll al inicio de la página
-    window.location.href = '#';
-
     // ocultamos el menú de juego y mostramos el juego
     $("#menu").fadeOut('slow', function(){
         $("#juego").fadeIn('slow');
@@ -128,9 +125,6 @@ function reiniciarJuego() {
 
 // FUNCIÓN AL PULSAR EL BOTÓN DE VOLVER AL MENÚ
 function volverMenu() {
-    // hacemos scroll al inicio de la página
-    window.location.href = '#';
-
     // ocultamos el juego y mostramos el menú del juego
     $("#juego").fadeOut('slow', function(){
         $("#menu").fadeIn('slow');
