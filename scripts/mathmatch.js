@@ -30,8 +30,6 @@ function inicializarEventos() {
     // Nota. Se usa la función bind() por requisitos del ejercicio, aunque existe la función on() que es más eficiente
     // También se pueden inicializar los eventos con la notación $(elemento).eventoEnCuestion(funcionQueSeDebeEjecutar)
 
-    $("#jugador").focus();
-
     // cargamos los valores de localStorage y cookies
     cargarDatos();
 
@@ -41,6 +39,9 @@ function inicializarEventos() {
         $("#mostrar, #ocultar").toggle();
     });
 
+    // se hace foco en el campo jugador para asegurar que ocurra el evento blur en ese campo y así inicializar
+    // los eventos de las opciones de menú en función de si existe el nombre de jugador o no (ver comprobarExisteJugador)
+    $("#jugador").focus();
     // definimos el evento cuando se pierde el foco en el campo jugador
     $("#jugador").blur(comprobarExisteJugador);  // inicialización directamente con el evento, aunque se puede hacer con bind()/on()
 
@@ -98,7 +99,7 @@ function comenzarJuego() {
     // ocultamos el menú de juego y mostramos el juego
     $("#menu").fadeOut('slow', function() {
         $("#juego").fadeIn('slow', function() {
-            $("html, body").scrollTop(0);  // hacemos scroll hacia arriba
+            $("#juego").focus();  // hacemos scroll hacia arriba
         });
     });
 
@@ -130,7 +131,7 @@ function volverMenu() {
     // ocultamos el juego y mostramos el menú del juego
     $("#juego").fadeOut('slow', function() {
         $("#menu").fadeIn('slow', function() {
-            $("html, body").scrollTop(0);  // hacemos scroll hacia arriba
+            $("#menu").focus();  // hacemos scroll hacia arriba
         });
     }); 
 }
