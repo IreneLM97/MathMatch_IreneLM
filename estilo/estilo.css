@@ -1,0 +1,150 @@
+/* ESTILO DEL CUERPO DEL HTML */
+body {
+    background-color: #808080;
+    text-align: center;
+    justify-content: center;
+}
+
+/* ESTILO DEL LOGO */
+#logo {
+    width: 100;
+}
+
+/* ESTILO DE LA CAJA DE TEXTO DE JUGADOR */
+#jugador {
+    background-color: rgb(41, 40, 40);
+    color: white;
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #3498db;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* ESTILO DE MENSAJE DE JUGADOR OBLIGATORIO */
+.obligatorio {
+    font-size: 20px;
+}
+
+/* ESTILO DE PARPADEO */
+.parpadeo {
+    animation-name: parpadeo;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes parpadeo {  
+    50% { opacity: 0.0; }
+  }
+
+
+/* ESTILO DE LAS OPCIONES DEL MENÚ */
+.opcion-menu {
+    background-color: #AEAEAE;
+    border: 1px solid black;
+    height: 100%;
+    width: 270px;
+    padding: 3px 3px; 
+    text-align: center;
+    border-radius: 80px;
+    margin: 0 auto;
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.texto-menu {
+    font-size: 23px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+/* ESTILO DE LOS BOTONES */
+.boton-enunciado {
+    background-color: rgb(41, 40, 40);    
+    color: white;                             
+    padding: 5px; 
+    border: none;         
+    border-radius: 50px;         
+    cursor: pointer;            
+    font-size: 15px;            
+    height: 40px;
+}
+
+.boton-opciones {
+    background-color: black;    
+    color: white;              
+    border: none;               
+    padding: 3px 10px;          
+    border-radius: 50px;         
+    cursor: pointer;            
+    font-size: 12px;            
+    height: 40px;
+    margin: 10px;
+    font-size: 15px;
+}
+
+/* ESTILO DEL DIV DE ENUNCIADO */
+#enunciado {
+    display: none;
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: start;
+    margin-bottom: 20px;
+    width: 1200px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+/* ESTILO DEL DIV DEL JUEGO */
+#juego {
+    display: none;
+}
+
+/* ESTILO DEL DIV DE LOS TIEMPOS */
+#tiempos {
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#tiempos i {
+    font-size: 23px;
+}
+
+/* ESTILO DE LA TABLA QUE MUESTRA LAS IMÁGENES */
+table {
+    border-collapse: collapse;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+}
+
+/* ESTILO DE LAS IMÁGENES DE LA TABLA */
+table img {
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 10px;
+    border: 5px solid black; 
+    box-shadow: 2px 2px 4px #888;
+}
+
+/* ESTILO PARA LAS CARTAS ACERTADAS EN EL JUEGO */
+.acertada {
+    filter: grayscale(50%);
+}
+
+/* ESTILO DEL FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Puedes personalizar el color de fondo */
+    color: #fff; /* Puedes personalizar el color del texto */
+    padding: 10px 0; /* Espaciado en el interior del footer */
+}
