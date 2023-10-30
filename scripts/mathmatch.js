@@ -99,7 +99,7 @@ function comenzarJuego() {
     // ocultamos el menú de juego y mostramos el juego
     $("#menu").fadeOut('slow', function() {
         $("#juego").fadeIn('slow', function() {
-            $("#juego").focus();  // hacemos scroll hacia arriba
+            $("#").focus();  // hacemos scroll hacia arriba
         });
     });
 
@@ -131,7 +131,7 @@ function volverMenu() {
     // ocultamos el juego y mostramos el menú del juego
     $("#juego").fadeOut('slow', function() {
         $("#menu").fadeIn('slow', function() {
-            $("#menu").focus();  // hacemos scroll hacia arriba
+            $("#").focus();  // hacemos scroll hacia arriba
         });
     }); 
 }
